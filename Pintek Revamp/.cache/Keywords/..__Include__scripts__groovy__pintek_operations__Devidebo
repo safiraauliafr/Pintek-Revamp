@@ -1,0 +1,10 @@
+{
+  "keywordFileContentHash": "08A3C155C57FA34576C7CCA79509245E",
+  "keywordClasses": [
+    {
+      "name": "pintek_operations.LoginBackofficeSteps",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}
