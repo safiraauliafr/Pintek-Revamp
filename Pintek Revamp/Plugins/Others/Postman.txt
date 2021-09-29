@@ -1,0 +1,106 @@
+1. create a workspace that can be shared with other teammates
+2. resources for writing tests:
+	- Chai.js assertion library
+	- JavaScript snippets
+	- Postman sandbox libraries
+	
+
+
+--Clear a global variable--
+pm.environment.get("variable_key");
+
+--Clear a collection variable--
+pm.globals.get("variable_key");
+
+--Get a variable--
+pm.variables.get("variable_key");
+
+--Get a collection variable--
+pm.collectionVariables.get("variable_key");
+
+--Set an environment variable--
+pm.environment.set("variable_key", "variable_value");
+
+--Set a global variable--
+pm.globals.set("variable_key", "variable_value");
+
+--Set a collection variable--
+pm.collectionVariables.set("variable_key", "variable_value");
+
+--Clear an environment variable--
+pm.environment.unset("variable_key");
+
+--Clear a global variable--
+pm.globals.unset("variable_key");
+
+--Clear a collection variable--
+pm.collectionVariables.unset("variable_key");
+
+--Send a request--
+pm.sendRequest("https://postman-echo.com/get", function (err, response) {
+    console.log(response.json());
+});
+
+--Status code is 200--
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+--Response Body: Contains string--
+pm.test("Body matches string", function () {
+    pm.expect(pm.response.text()).to.include("string_you_want_to_search");
+});
+
+--Response Body: JSON value check--
+pm.test("Your test name", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.value).to.eql(100);
+});
+
+--Response Body: is equal to a string--
+pm.test("Body is correct", function () {
+    pm.response.to.have.body("response_body_string");
+});
+
+--Response Headers: Content-Type header check--
+pm.test("Content-Type is present", function () {
+    pm.response.to.have.header("Content-Type");
+});
+
+--Response time is less than 200ms--
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(200);
+});
+
+--Status code: Successful POST request--
+pm.test("Successful POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([201, 202]);
+});
+
+--Status code: Code name has string--
+pm.test("Status code name has string", function () {
+    pm.response.to.have.status("Created");
+});
+
+--Response body: Convert XML body to a JSON object--
+var jsonObject = xml2Json(responseBody);
+
+--Use Tiny Validator for JSON data--
+var schema = {
+    "items": {
+        "type": "boolean"
+    }
+};
+
+var data1 = [true, false];
+var data2 = [true, 123];
+
+
+pm.test('Schema is valid', function () {
+    pm.expect(tv4.validate(data1, schema)).to.be.true;
+    pm.expect(tv4.validate(data2, schema)).to.be.true;
+});
+
+-----------------------------------------------------------------
+
+{{$randomBs}} --> generate random value for variable
