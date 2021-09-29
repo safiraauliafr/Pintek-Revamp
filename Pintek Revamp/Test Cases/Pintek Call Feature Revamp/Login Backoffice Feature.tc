@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>- Login with all backoffice user</description>
+   <name>Login Backoffice Feature</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>1d93dfcf-ed86-403c-a681-aeae0bf8005d</testCaseGuid>
+</TestCaseEntity>
